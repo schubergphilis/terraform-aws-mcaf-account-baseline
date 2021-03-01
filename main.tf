@@ -24,12 +24,14 @@ resource "aws_cloudwatch_metric_alarm" "iam_activity" {
   alarm_description         = "Monitors IAM activity for ${each.key}"
   alarm_actions             = [var.monitor_iam_activity_sns_topic_arn]
   insufficient_data_actions = []
+  tags                      = var.tags
 }
 
 resource "aws_config_aggregate_authorization" "default" {
   for_each   = { for aggregator in local.aws_config_aggregators : "${aggregator.account_id}-${aggregator.region}" => aggregator }
   account_id = each.value.account_id
   region     = each.value.region
+  tags       = var.tags
 }
 
 resource "aws_ebs_encryption_by_default" "default" {
