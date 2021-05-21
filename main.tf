@@ -38,6 +38,11 @@ resource "aws_ebs_encryption_by_default" "default" {
   enabled = var.aws_ebs_encryption_by_default
 }
 
+resource "aws_ebs_default_kms_key" "default" {
+  count   = var.aws_kms_key_arn != null ? 1 : 0
+  key_arn = var.aws_kms_key_arn
+}
+
 resource "aws_iam_account_password_policy" "default" {
   count                          = var.account_password_policy != null ? 1 : 0
   allow_users_to_change_password = var.account_password_policy.allow_users_to_change
