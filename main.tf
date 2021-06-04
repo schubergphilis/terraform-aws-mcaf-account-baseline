@@ -39,7 +39,7 @@ resource "aws_ebs_encryption_by_default" "default" {
 }
 
 resource "aws_ebs_default_kms_key" "default" {
-  count   = var.aws_kms_key_arn != null ? 1 : 0
+  count   = var.aws_ebs_encryption_custom_key == true ? 1 : 0
   key_arn = var.aws_kms_key_arn
 }
 

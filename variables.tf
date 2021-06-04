@@ -37,6 +37,12 @@ variable "aws_ebs_encryption_by_default" {
   description = "Set to true to enable AWS Elastic Block Store encryption by default"
 }
 
+variable "aws_ebs_encryption_custom_key" {
+  type        = bool
+  default     = false
+  description = "Set to true and specify the `aws_kms_key_arn` to use in place of the AWS-managed default CMK"
+}
+
 variable "aws_kms_key_arn" {
   type        = string
   default     = null

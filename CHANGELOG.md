@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.1.2 (2021-06-04)
+
+BUG FIXES
+* Fix `aws_ebs_default_kms_key` the count value depends on resource attributes that cannot be determined until apply [#5](https://github.com/schubergphilis/terraform-aws-mcaf-account-baseline/pull/5))
+
 ## 0.1.1 (2021-05-21)
 
 * Add support for specifying the AWS KMS CMK to use to encrypt the EBS volumes ([#3](https://github.com/schubergphilis/terraform-aws-mcaf-account-baseline/pull/3))
