@@ -4,11 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## 0.1.3 (2022-10-02)
+## 0.1.4 (2022-10-02)
 
 BUG FIXES
 
-- Add count to `aws_cloudwatch_log_group.cloudtrail` data resource [#6](https://github.com/schubergphilis/terraform-aws-mcaf-account-baseline/pull/6))
+- Add count to `aws_cloudwatch_log_group.cloudtrail` data resource [#7](https://github.com/schubergphilis/terraform-aws-mcaf-account-baseline/pull/7))
+
+## 0.1.3 (2022-09-09)
+
+ENHANCEMENTS
+
+- Update IAM activity filter [#6](https://github.com/schubergphilis/terraform-aws-mcaf-account-baseline/pull/6))
 
 ## 0.1.2 (2021-06-04)
 
