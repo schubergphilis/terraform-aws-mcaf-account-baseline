@@ -1,9 +1,11 @@
 # terraform-aws-mcaf-account-baseline
-Terraform module to setup a baseline configuration for AWS accounts.
+
+Terraform module to manage baseline configuration for AWS accounts.
 
 ## How to use
 
 ### Basic configuration
+
 ```hcl
 module "account_baseline" {
   source = "github.com/schubergphilis/terraform-aws-mcaf-account-baseline?ref=VERSION"
@@ -12,9 +14,10 @@ module "account_baseline" {
 
 ## AWS Config Rules
 
-If you would like to authorize other accounts to aggregate AWS Config data, the account IDs and regions can be passed via the variable `aws_config` using the attributes `aggregator_account_ids` and `aggregator_regions` respectively.
+If you would like to authorise other accounts to aggregate AWS Config data, account IDs and regions can be passed to `var.aws_config` using the attributes `aggregator_account_ids` and `aggregator_regions` respectively.
 
-NOTE: Control Tower already authorizes the `audit` account to aggregate Config data from all other accounts in the organization, so there is no need to specify the `audit` account ID in the `aggregator_account_ids` list.
+> **Note**
+> Control Tower already authorizes the `audit` account to aggregate Config data from all other accounts in the organization, so there is no need to specify the `audit` account ID in the `aggregator_account_ids` list.
 
 Example:
 
@@ -29,14 +32,14 @@ aws_config = {
 
 This module offers the capability of monitoring IAM activity of both the Root user and AWS SSO roles. To enable this feature, you have to provide the ARN of the SNS Topic that should receive events in case any activity is detected.
 
-The topic ARN can be set using the variable `monitor_iam_activity_sns_topic_arn`.
+The topic ARN can be set using `var.monitor_iam_activity_sns_topic_arn`.
 
-These are the type of events that will be monitored:
+These are two type of events that will be monitored:
 
 - Any activity made by the root user of the account.
 - Any manual changes made by AWS SSO roles (read-only operations and console logins are not taken into account).
 
-In case you would like to NOT monitor AWS SSO roles, you can set `monitor_iam_activity_sso` to `false`.
+In case you would like to NOT monitor AWS SSO role activity, you can set `var.monitor_iam_activity_sso` to `false`.
 
 Example:
 
