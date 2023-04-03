@@ -45,7 +45,7 @@ monitor_iam_activity_sns_topic_arn = "arn:aws:sns:eu-west-1:123456789012:Landing
 monitor_iam_activity_sso           = false
 ```
 
-<!--- BEGIN_TF_DOCS --->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
@@ -75,4 +75,4 @@ monitor_iam_activity_sso           = false
 
 No output.
 
-<!--- END_TF_DOCS --->
+<!-- END_TF_DOCS -->
