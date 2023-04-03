@@ -7,7 +7,6 @@ Terraform module to setup a baseline configuration for AWS accounts.
 ```hcl
 module "account_baseline" {
   source = "github.com/schubergphilis/terraform-aws-mcaf-account-baseline?ref=VERSION"
-  tags   = var.tags
 }
 ```
 
