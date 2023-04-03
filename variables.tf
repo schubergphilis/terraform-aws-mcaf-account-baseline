@@ -63,5 +63,6 @@ variable "monitor_iam_activity_sso" {
 
 variable "tags" {
   type        = map(string)
+  default     = {}
   description = "Map of tags"
 }
