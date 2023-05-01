@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v0.1.5 - 2023-05-01
+
+### What's Changed
+
+- remove workflow (#9) @shoekstra
+
+#### 📖 Documentation
+
+- docs: Docs review 2022-04 (#11) @shoekstra
+- misc: set default value for `var.tags` (#10) @shoekstra
+
+**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-account-baseline/compare/v0.1.4...v0.1.5
+
 ## 0.1.4 (2022-10-02)
 
 BUG FIXES
