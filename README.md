@@ -28,6 +28,16 @@ aws_config = {
 }
 ```
 
+## AWS Security Hub
+
+This module enables the following standards by default:
+
+- `AWS Foundational Security Best Practices v1.0.0`
+- `CIS AWS Foundations Benchmark v1.4.0`
+- `PCI DSS v3.2.1`
+
+You are able to control the enabled standards via `var.aws_security_hub_standards_arns`.
+
 ## Monitoring IAM Activity
 
 This module offers the capability of monitoring IAM activity of both the Root user and AWS SSO roles. To enable this feature, you have to provide the ARN of the SNS Topic that should receive events in case any activity is detected.

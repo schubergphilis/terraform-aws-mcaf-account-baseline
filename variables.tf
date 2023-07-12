@@ -49,6 +49,12 @@ variable "aws_kms_key_arn" {
   description = "The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volumes"
 }
 
+variable "aws_security_hub_standards_arns" {
+  type        = list(string)
+  default     = null
+  description = "A list of the ARNs of the standards you want to enable in AWS Security Hub. If you do not provide a list the default standards are enabled"
+}
+
 variable "monitor_iam_activity_sns_topic_arn" {
   type        = string
   default     = null
