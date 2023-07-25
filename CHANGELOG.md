@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v0.2.0 - 2023-07-25
+
+### What's Changed
+
+#### 🚀 Features
+
+- feature: control the AWS Security Hub standards in member accounts (#12) @marwinbaumannsbp
+
+**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-account-baseline/compare/v0.1.5...v0.2.0
+
 ## v0.1.5 - 2023-05-01
 
 ### What's Changed
