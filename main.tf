@@ -54,3 +54,9 @@ resource "aws_iam_account_password_policy" "default" {
   require_symbols                = var.account_password_policy.require_symbols
   require_uppercase_characters   = var.account_password_policy.require_uppercase_characters
 }
+
+resource "aws_securityhub_standards_subscription" "default" {
+  for_each = toset(local.security_hub_standards_arns)
+
+  standards_arn = each.value
+}

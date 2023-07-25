@@ -16,4 +16,12 @@ locals {
       SSO = "{ $.readOnly IS FALSE  && $.userIdentity.sessionContext.sessionIssuer.userName = \"AWSReservedSSO_*\" && $.eventName != \"ConsoleLogin\" }"
     } : {}
   )
+
+  security_hub_standards_arns_default = [
+    "arn:aws:securityhub:${data.aws_region.current.name}::standards/aws-foundational-security-best-practices/v/1.0.0",
+    "arn:aws:securityhub:${data.aws_region.current.name}::standards/cis-aws-foundations-benchmark/v/1.4.0",
+    "arn:aws:securityhub:${data.aws_region.current.name}::standards/pci-dss/v/3.2.1"
+  ]
+
+  security_hub_standards_arns = var.aws_security_hub_standards_arns != null ? var.aws_security_hub_standards_arns : local.security_hub_standards_arns_default
 }
