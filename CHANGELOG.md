@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v0.2.1 - 2023-12-05
+
+### What's Changed
+
+#### 🐛 Bug Fixes
+
+* bug: Fix `aws_cloudwatch_log_group` resource (#13) @shoekstra
+
+**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-account-baseline/compare/v0.2.0...v0.2.1
+
 ## v0.2.0 - 2023-07-25
 
 ### What's Changed
