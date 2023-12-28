@@ -55,6 +55,16 @@ variable "aws_security_hub_standards_arns" {
   description = "A list of the ARNs of the standards you want to enable in AWS Security Hub. If you do not provide a list the default standards are enabled"
 }
 
+variable "service_quotas_manager_role" {
+  type = object({
+    assuming_principal_identifier = string
+    path                          = optional(string, "/")
+    permissions_boundary          = optional(string, null)
+  })
+  default     = null
+  description = "Create the role needed to integrate the terraform-aws-mcaf-service-quotas-manager module"
+}
+
 variable "monitor_iam_activity_sns_topic_arn" {
   type        = string
   default     = null

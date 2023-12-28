@@ -63,7 +63,7 @@ monitor_iam_activity_sso           = false
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.2.0 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.0.0 |
 
 ## Providers
@@ -74,7 +74,9 @@ monitor_iam_activity_sso           = false
 
 ## Modules
 
-No modules.
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_service_quota_manager_role"></a> [service\_quota\_manager\_role](#module\_service\_quota\_manager\_role) | github.com/schubergphilis/terraform-aws-mcaf-role | v0.3.3 |
 
 ## Resources
 
@@ -102,6 +104,7 @@ No modules.
 | <a name="input_aws_security_hub_standards_arns"></a> [aws\_security\_hub\_standards\_arns](#input\_aws\_security\_hub\_standards\_arns) | A list of the ARNs of the standards you want to enable in AWS Security Hub. If you do not provide a list the default standards are enabled | `list(string)` | `null` | no |
 | <a name="input_monitor_iam_activity_sns_topic_arn"></a> [monitor\_iam\_activity\_sns\_topic\_arn](#input\_monitor\_iam\_activity\_sns\_topic\_arn) | SNS Topic that should receive captured IAM activity events | `string` | `null` | no |
 | <a name="input_monitor_iam_activity_sso"></a> [monitor\_iam\_activity\_sso](#input\_monitor\_iam\_activity\_sso) | Whether IAM activity from SSO roles should be monitored | `bool` | `true` | no |
+| <a name="input_service_quotas_manager_role"></a> [service\_quotas\_manager\_role](#input\_service\_quotas\_manager\_role) | Create the role needed to integrate the terraform-aws-mcaf-service-quotas-manager module | <pre>object({<br>    assuming_principal_identifier = string<br>    path                          = optional(string, "/")<br>    permissions_boundary          = optional(string, null)<br>  })</pre> | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Map of tags | `map(string)` | `{}` | no |
 
 ## Outputs
