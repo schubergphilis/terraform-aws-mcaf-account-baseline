@@ -40,10 +40,10 @@ You are able to control the enabled standards via `var.aws_security_hub_standard
 
 ## MCAF Service Quotas Manager integration
 
-This module can deploy the IAM role required by the [MCAF Service Quotas Manager](https://github.com/schubergphilis/terraform-aws-mcaf-service-quotas-manager) module. The `assuming_principal_identifier` should be the `ServiceQuotaManagerExecutionRole`. This is by default `arn:aws:iam::<account_id>:role/ServiceQuotaManagerExecutionRole-<region_name>`.
+This module can deploy the IAM role required by the [MCAF Service Quotas Manager](https://github.com/schubergphilis/terraform-aws-mcaf-service-quotas-manager) module. The `assuming_principal_identifier` should be the `ServiceQuotasManagerExecutionRole`. This is by default `arn:aws:iam::<account_id>:role/ServiceQuotasManagerExecutionRole-<region_name>`.
 
 > [!NOTE]  
-> The Service Quoatas Manager module should be deployed first before deploying this integration. Only existing IAM roles can be referenced as principals.
+> The Service Quotas Manager module should be deployed first before deploying this integration. Only existing IAM roles can be referenced as principals.
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
