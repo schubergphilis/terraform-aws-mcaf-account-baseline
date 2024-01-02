@@ -70,7 +70,7 @@ module "service_quota_manager_role" {
   count  = var.service_quotas_manager_role != null ? 1 : 0
   source = "github.com/schubergphilis/terraform-aws-mcaf-role?ref=v0.3.3"
 
-  name                  = "ServiceQuotaManager"
+  name                  = "ServiceQuotasManager"
   create_policy         = true
   path                  = var.service_quotas_manager_role.path
   permissions_boundary  = var.service_quotas_manager_role.permissions_boundary
