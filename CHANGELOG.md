@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v0.3.1 - 2024-01-02
+
+### What's Changed
+
+#### 🐛 Bug Fixes
+
+* bug: modify service quotas manager role name (#16) @marwinbaumannsbp
+
+**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-account-baseline/compare/v0.3.0...v0.3.1
+
 ## v0.3.0 - 2023-12-28
 
 ### What's Changed
