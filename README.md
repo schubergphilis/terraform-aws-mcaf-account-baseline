@@ -45,26 +45,6 @@ This module can deploy the IAM role required by the [MCAF Service Quotas Manager
 > [!NOTE]  
 > The Service Quoatas Manager module should be deployed first before deploying this integration. Only existing IAM roles can be referenced as principals.
 
-## Monitoring IAM Activity
-
-This module offers the capability of monitoring IAM activity of both the Root user and AWS SSO roles. To enable this feature, you have to provide the ARN of the SNS Topic that should receive events in case any activity is detected.
-
-The topic ARN can be set using `var.monitor_iam_activity_sns_topic_arn`.
-
-These are two type of events that will be monitored:
-
-- Any activity made by the root user of the account.
-- Any manual changes made by AWS SSO roles (read-only operations and console logins are not taken into account).
-
-In case you would like to NOT monitor AWS SSO role activity, you can set `var.monitor_iam_activity_sso` to `false`.
-
-Example:
-
-```hcl
-monitor_iam_activity_sns_topic_arn = "arn:aws:sns:eu-west-1:123456789012:LandingZone-IAMActivity"
-monitor_iam_activity_sso           = false
-```
-
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 

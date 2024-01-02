@@ -65,18 +65,6 @@ variable "service_quotas_manager_role" {
   description = "Create the role needed to integrate the terraform-aws-mcaf-service-quotas-manager module"
 }
 
-variable "monitor_iam_activity_sns_topic_arn" {
-  type        = string
-  default     = null
-  description = "SNS Topic that should receive captured IAM activity events"
-}
-
-variable "monitor_iam_activity_sso" {
-  type        = bool
-  default     = true
-  description = "Whether IAM activity from SSO roles should be monitored"
-}
-
 variable "tags" {
   type        = map(string)
   default     = {}

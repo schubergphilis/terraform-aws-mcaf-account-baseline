@@ -8,15 +8,6 @@ locals {
     ]
   ]) : []
 
-  iam_activity = merge(
-    {
-      Root = "{ $.userIdentity.type=\"Root\" && $.userIdentity.invokedBy NOT EXISTS && $.eventType != \"AwsServiceEvent\" }"
-    },
-    var.monitor_iam_activity_sso == true ? {
-      SSO = "{ $.readOnly IS FALSE  && $.userIdentity.sessionContext.sessionIssuer.userName = \"AWSReservedSSO_*\" && $.eventName != \"ConsoleLogin\" }"
-    } : {}
-  )
-
   security_hub_standards_arns_default = [
     "arn:aws:securityhub:${data.aws_region.current.name}::standards/aws-foundational-security-best-practices/v/1.0.0",
     "arn:aws:securityhub:${data.aws_region.current.name}::standards/cis-aws-foundations-benchmark/v/1.4.0",
