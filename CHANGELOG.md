@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v1.0.0 - 2024-01-02
+
+### What's Changed
+
+#### 🚀 Features
+
+* breaking: Control Tower 3.0 support (#15) @stefanwb
+
+**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-account-baseline/compare/v0.3.1...v1.0.0
+
 ## v0.3.1 - 2024-01-02
 
 ### What's Changed
