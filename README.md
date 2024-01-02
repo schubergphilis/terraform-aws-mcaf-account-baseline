@@ -38,6 +38,13 @@ This module enables the following standards by default:
 
 You are able to control the enabled standards via `var.aws_security_hub_standards_arns`.
 
+## MCAF Service Quotas Manager integration
+
+This module can deploy the IAM role required by the [MCAF Service Quotas Manager](https://github.com/schubergphilis/terraform-aws-mcaf-service-quotas-manager) module. The `assuming_principal_identifier` should be the `ServiceQuotaManagerExecutionRole`. This is by default `arn:aws:iam::<account_id>:role/ServiceQuotaManagerExecutionRole-<region_name>`.
+
+> [!NOTE]  
+> The Service Quoatas Manager module should be deployed first before deploying this integration. Only existing IAM roles can be referenced as principals.
+
 ## Monitoring IAM Activity
 
 This module offers the capability of monitoring IAM activity of both the Root user and AWS SSO roles. To enable this feature, you have to provide the ARN of the SNS Topic that should receive events in case any activity is detected.
