@@ -69,14 +69,11 @@ This module can deploy the IAM role required by the [MCAF Service Quotas Manager
 
 | Name | Type |
 |------|------|
-| [aws_cloudwatch_log_metric_filter.iam_activity](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_metric_filter) | resource |
-| [aws_cloudwatch_metric_alarm.iam_activity](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm) | resource |
 | [aws_config_aggregate_authorization.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_aggregate_authorization) | resource |
 | [aws_ebs_default_kms_key.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ebs_default_kms_key) | resource |
 | [aws_ebs_encryption_by_default.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ebs_encryption_by_default) | resource |
 | [aws_iam_account_password_policy.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_account_password_policy) | resource |
 | [aws_securityhub_standards_subscription.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/securityhub_standards_subscription) | resource |
-| [aws_cloudwatch_log_group.cloudtrail](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/cloudwatch_log_group) | data source |
 | [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) | data source |
 
 ## Inputs
@@ -89,8 +86,6 @@ This module can deploy the IAM role required by the [MCAF Service Quotas Manager
 | <a name="input_aws_ebs_encryption_custom_key"></a> [aws\_ebs\_encryption\_custom\_key](#input\_aws\_ebs\_encryption\_custom\_key) | Set to true and specify the `aws_kms_key_arn` to use in place of the AWS-managed default CMK | `bool` | `false` | no |
 | <a name="input_aws_kms_key_arn"></a> [aws\_kms\_key\_arn](#input\_aws\_kms\_key\_arn) | The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volumes | `string` | `null` | no |
 | <a name="input_aws_security_hub_standards_arns"></a> [aws\_security\_hub\_standards\_arns](#input\_aws\_security\_hub\_standards\_arns) | A list of the ARNs of the standards you want to enable in AWS Security Hub. If you do not provide a list the default standards are enabled | `list(string)` | `null` | no |
-| <a name="input_monitor_iam_activity_sns_topic_arn"></a> [monitor\_iam\_activity\_sns\_topic\_arn](#input\_monitor\_iam\_activity\_sns\_topic\_arn) | SNS Topic that should receive captured IAM activity events | `string` | `null` | no |
-| <a name="input_monitor_iam_activity_sso"></a> [monitor\_iam\_activity\_sso](#input\_monitor\_iam\_activity\_sso) | Whether IAM activity from SSO roles should be monitored | `bool` | `true` | no |
 | <a name="input_service_quotas_manager_role"></a> [service\_quotas\_manager\_role](#input\_service\_quotas\_manager\_role) | Create the role needed to integrate the terraform-aws-mcaf-service-quotas-manager module | <pre>object({<br>    assuming_principal_identifier = string<br>    path                          = optional(string, "/")<br>    permissions_boundary          = optional(string, null)<br>  })</pre> | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Map of tags | `map(string)` | `{}` | no |
 
