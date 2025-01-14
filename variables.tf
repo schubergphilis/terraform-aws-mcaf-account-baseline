@@ -49,6 +49,18 @@ variable "aws_kms_key_arn" {
   description = "The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volumes"
 }
 
+variable "aws_s3_public_access_block_config" {
+  type = object({
+    enabled                 = optional(bool, true)
+    block_public_acls       = optional(bool, true)
+    block_public_policy     = optional(bool, true)
+    ignore_public_acls      = optional(bool, true)
+    restrict_public_buckets = optional(bool, true)
+  })
+  default     = {}
+  description = "S3 bucket-level Public Access Block config"
+}
+
 variable "aws_security_hub_standards_arns" {
   type        = list(string)
   default     = null
