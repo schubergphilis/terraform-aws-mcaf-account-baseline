@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v1.1.0 - 2025-01-14
+
+### What's Changed
+
+#### 🚀 Features
+
+* feature: allow to configure the aws s3 account public access block (#18) @marwinbaumannsbp
+
+**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-account-baseline/compare/v1.0.1...v1.1.0
+
 ## v1.0.1 - 2024-01-02
 
 ### What's Changed
