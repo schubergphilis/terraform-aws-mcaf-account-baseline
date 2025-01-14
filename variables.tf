@@ -58,7 +58,7 @@ variable "aws_s3_public_access_block_config" {
     restrict_public_buckets = optional(bool, true)
   })
   default     = {}
-  description = "Configuration for S3 account public access block."
+  description = "S3 bucket-level Public Access Block config"
 }
 
 variable "aws_security_hub_standards_arns" {
