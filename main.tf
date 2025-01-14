@@ -35,9 +35,20 @@ resource "aws_securityhub_standards_subscription" "default" {
   standards_arn = each.value
 }
 
+resource "aws_s3_account_public_access_block" "default" {
+  count = var.aws_s3_public_access_block_config.enabled ? 1 : 0
+
+  block_public_acls       = var.aws_s3_public_access_block_config.block_public_acls
+  block_public_policy     = var.aws_s3_public_access_block_config.block_public_policy
+  ignore_public_acls      = var.aws_s3_public_access_block_config.ignore_public_acls
+  restrict_public_buckets = var.aws_s3_public_access_block_config.restrict_public_buckets
+}
+
 module "service_quota_manager_role" {
-  count  = var.service_quotas_manager_role != null ? 1 : 0
-  source = "github.com/schubergphilis/terraform-aws-mcaf-role?ref=v0.3.3"
+  count = var.service_quotas_manager_role != null ? 1 : 0
+
+  source  = "schubergphilis/mcaf-role/aws"
+  version = "~> 0.4.0"
 
   name                  = "ServiceQuotasManager"
   create_policy         = true
