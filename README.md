@@ -40,7 +40,7 @@ This module can deploy the IAM role required by the [MCAF Service Quotas Manager
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.2.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.7.0 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.0.0 |
 
 ## Providers
@@ -64,7 +64,6 @@ This module can deploy the IAM role required by the [MCAF Service Quotas Manager
 | [aws_ebs_encryption_by_default.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ebs_encryption_by_default) | resource |
 | [aws_iam_account_password_policy.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_account_password_policy) | resource |
 | [aws_s3_account_public_access_block.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_account_public_access_block) | resource |
-| [aws_securityhub_standards_subscription.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/securityhub_standards_subscription) | resource |
 | [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) | data source |
 
 ## Inputs
@@ -77,7 +76,6 @@ This module can deploy the IAM role required by the [MCAF Service Quotas Manager
 | <a name="input_aws_ebs_encryption_custom_key"></a> [aws\_ebs\_encryption\_custom\_key](#input\_aws\_ebs\_encryption\_custom\_key) | Set to true and specify the `aws_kms_key_arn` to use in place of the AWS-managed default CMK | `bool` | `false` | no |
 | <a name="input_aws_kms_key_arn"></a> [aws\_kms\_key\_arn](#input\_aws\_kms\_key\_arn) | The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volumes | `string` | `null` | no |
 | <a name="input_aws_s3_public_access_block_config"></a> [aws\_s3\_public\_access\_block\_config](#input\_aws\_s3\_public\_access\_block\_config) | S3 bucket-level Public Access Block config | <pre>object({<br>    enabled                 = optional(bool, true)<br>    block_public_acls       = optional(bool, true)<br>    block_public_policy     = optional(bool, true)<br>    ignore_public_acls      = optional(bool, true)<br>    restrict_public_buckets = optional(bool, true)<br>  })</pre> | `{}` | no |
-| <a name="input_aws_security_hub_standards_arns"></a> [aws\_security\_hub\_standards\_arns](#input\_aws\_security\_hub\_standards\_arns) | A list of the ARNs of the standards you want to enable in AWS Security Hub. If you do not provide a list the default standards are enabled | `list(string)` | `null` | no |
 | <a name="input_service_quotas_manager_role"></a> [service\_quotas\_manager\_role](#input\_service\_quotas\_manager\_role) | Create the role needed to integrate the terraform-aws-mcaf-service-quotas-manager module | <pre>object({<br>    assuming_principal_identifier = string<br>    path                          = optional(string, "/")<br>    permissions_boundary          = optional(string, null)<br>  })</pre> | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Map of tags | `map(string)` | `{}` | no |
 
