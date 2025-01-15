@@ -29,12 +29,6 @@ resource "aws_iam_account_password_policy" "default" {
   require_uppercase_characters   = var.account_password_policy.require_uppercase_characters
 }
 
-resource "aws_securityhub_standards_subscription" "default" {
-  for_each = toset(local.security_hub_standards_arns)
-
-  standards_arn = each.value
-}
-
 resource "aws_s3_account_public_access_block" "default" {
   count = var.aws_s3_public_access_block_config.enabled ? 1 : 0
 

@@ -28,16 +28,6 @@ aws_config = {
 }
 ```
 
-## AWS Security Hub
-
-This module enables the following standards by default:
-
-- `AWS Foundational Security Best Practices v1.0.0`
-- `CIS AWS Foundations Benchmark v1.4.0`
-- `PCI DSS v3.2.1`
-
-You are able to control the enabled standards via `var.aws_security_hub_standards_arns`.
-
 ## MCAF Service Quotas Manager integration
 
 This module can deploy the IAM role required by the [MCAF Service Quotas Manager](https://github.com/schubergphilis/terraform-aws-mcaf-service-quotas-manager) module. The `assuming_principal_identifier` should be the `ServiceQuotasManagerExecutionRole`. This is by default `arn:aws:iam::<account_id>:role/ServiceQuotasManagerExecutionRole-<region_name>`.
