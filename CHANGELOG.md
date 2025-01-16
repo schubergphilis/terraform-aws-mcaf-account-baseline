@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v2.0.0 - 2025-01-16
+
+### What's Changed
+
+#### 🚀 Features
+
+* breaking: remove aws_security_hub_standards_arns to support centralized security hub configuration (#19) @marwinbaumannsbp
+
+**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-account-baseline/compare/v1.1.0...v2.0.0
+
 ## v1.1.0 - 2025-01-14
 
 ### What's Changed
