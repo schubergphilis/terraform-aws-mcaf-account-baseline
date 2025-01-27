@@ -31,24 +31,36 @@ The following variables have been removed:
     *Steps to Remove Resources: Option 1: Using the Removed block:*
 
     ```
-    removed {
+    moved {
       from = module.account_baseline.aws_securityhub_standards_subscription["arn:aws:securityhub:eu-central-1::standards/pci-dss/v/3.2.1"]
+      to   = module.account_baseline.aws_securityhub_standards_subscription.standards_pci_dss
+    }
+    removed {
+      from =  module.account_baseline.aws_securityhub_standards_subscription.standards_pci_dss
 
       lifecycle {
         destroy = false
       }
     }
 
-    removed {
+     moved {
       from = module.account_baseline.aws_securityhub_standards_subscription["arn:aws:securityhub:eu-central-1::standards/cis-aws-foundations-benchmark/v/1.4.0"]
+      to   = module.account_baseline.aws_securityhub_standards_subscription.standards_cis_ws_foundations_benchmark
+    }
+    removed {
+      from = module.account_baseline.aws_securityhub_standards_subscription.standards_cis_ws_foundations_benchmark
 
       lifecycle {
         destroy = false
       }
     }
 
-    removed {
+     moved {
       from = module.account_baseline.aws_securityhub_standards_subscription["aws-foundational-security-best-practices/v/1.0.0"]
+      to   = module.account_baseline.aws_securityhub_standards_subscription.aws_foundational_security_best_practices
+    }
+    removed {
+      from = module.account_baseline.aws_securityhub_standards_subscription.aws_foundational_security_best_practices
 
       lifecycle {
         destroy = false
@@ -57,7 +69,7 @@ The following variables have been removed:
     ```
 
     Note: you may need to alter the removed blocks based on the actually configured subscriptions.
-
+    Note: the reason for first moving and then removing is because you cannot use "removed" blocks with a for_each loop
 
     *Steps to Remove Resources: Option 2: Using Terraform State manipulation*
 
