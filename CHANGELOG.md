@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v2.0.1 - 2025-02-19
+
+### What's Changed
+
+#### 📖 Documentation
+
+* docs: improve UPGRADING documentation because you cannot use REMOVED block with a for_each loop (#20) @macampo
+
+**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-account-baseline/compare/v2.0.0...v2.0.1
+
 ## v2.0.0 - 2025-01-16
 
 ### What's Changed
