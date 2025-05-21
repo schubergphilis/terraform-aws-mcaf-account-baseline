@@ -59,6 +59,11 @@ variable "aws_ebs_snapshot_block_public_access" {
   type        = string
   default     = "block-new-sharing"
   description = "Configure regionally the EBS snapshot public sharing policy, alternatives: `block-all-sharing` and `unblocked`"
+
+  validation {
+    condition     = contains(["unblocked", "block-new-sharing", "block-all-sharing"], var.aws_ebs_snapshot_block_public_access)
+    error_message = "Allowed values for aws_ebs_snapshot_block_public_access are: \"unblocked\", \"block-new-sharing\", \"block-all-sharing\"."
+  }
 }
 
 variable "aws_s3_public_access_block_config" {
