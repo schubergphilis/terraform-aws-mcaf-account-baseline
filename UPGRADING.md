@@ -2,6 +2,27 @@
 
 This document captures required refactoring on your part when upgrading to a module version that contains breaking changes.
 
+## Upgrading to v3.0.0
+
+### Key Changes
+
+This version sets secure defaults for regional public sharing of EC2 artifacts: block sharing newly created AMIs and EBS snapshots.
+
+### Variables
+
+The following variables have been added:
+
+- `aws_ec2_image_block_public_access`. Set to true to regionally block new AMIs from being publicly shared (false will set to `unblocked`).
+- `aws_ebs_snapshot_block_public_access`. Configure regionally the EBS snapshot public sharing policy (`block-new-sharing`), alternatives: `block-all-sharing` and `unblocked`.
+
+### How to upgrade
+
+If the secure default (blocking new EC2 artifacts from sharing) is what you desire, then no action is required.
+If you want to deploy backwards compatibly, then:
+
+- Set `aws_ec2_image_block_public_access` to `false`.
+- Set `aws_ebs_snapshot_block_public_access` to `unblocked`.
+
 ## Upgrading to v2.0.0
 
 ### Key Changes
