@@ -51,14 +51,14 @@ variable "aws_kms_key_arn" {
 
 variable "aws_ec2_image_block_public_access" {
   type        = bool
-  default     = false
+  default     = true
   description = "Set to true to regionally block new AMIs from being publicly shared"
 }
 
 variable "aws_ebs_snapshot_block_public_access" {
   type        = string
-  default     = "unblocked"
-  description = "Configure regionally the EBS snapshot public sharing policy, alternatives: `block-all-sharing` and `block-new-sharing`"
+  default     = "block-new-sharing"
+  description = "Configure regionally the EBS snapshot public sharing policy, alternatives: `block-all-sharing` and `unblocked`"
 }
 
 variable "aws_s3_public_access_block_config" {
