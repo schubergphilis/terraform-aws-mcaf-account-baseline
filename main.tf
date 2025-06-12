@@ -1,3 +1,10 @@
+resource "aws_account_region" "default" {
+  for_each = toset(local.regions_to_enable)
+
+  region_name = each.value
+  enabled     = true
+}
+
 resource "aws_config_aggregate_authorization" "default" {
   for_each = { for aggregator in local.aws_config_aggregators : "${aggregator.account_id}-${aggregator.region}" => aggregator }
 

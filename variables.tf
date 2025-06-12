@@ -78,6 +78,12 @@ variable "aws_s3_public_access_block_config" {
   description = "S3 bucket-level Public Access Block config"
 }
 
+variable "enable_additional_eu_regions" {
+  description = "Enable all additional EU AWS Regions beyond the default ones"
+  type        = bool
+  default     = true
+}
+
 variable "service_quotas_manager_role" {
   type = object({
     assuming_principal_identifier = string

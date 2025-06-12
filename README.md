@@ -12,6 +12,23 @@ module "account_baseline" {
 }
 ```
 
+### EU Region Enablement
+
+By default, this module enables all non-default EU regions (`eu-central-2`, `eu-south-1`, `eu-south-2`). To actually use these regions, they must also be included in the allowed regions SCP of the
+[mcaf-landing-zone module](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone).
+
+This module ensures that you can use all EU regions out of the box. If you intend to allow a region across your entire organization, the recommended approach is to also configure it as a governed region via AWS Control Tower. This ensures consistent enforcement of security, compliance, and operational guardrails.
+
+## Additional Enabled Regions
+
+AWS enables certain regions [by default](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html). Additional regions can be enabled using the `additional_enabled_regions` variable.
+
+> [!WARNING]
+> Enabling regions directly via this module bypasses AWS Control Tower governance.
+> If you need to allow new regions across your organization, the recommended approach is to use AWS Control Tower and configure them as governed regions to ensure consistent security, compliance, and guardrails.
+> However, if you only intend to deploy a small number of resources in a specific region and want to avoid the overhead of Control Tower, this module offers a lightweight alternative to enable that region without governance.
+> You can still add the region as a governed region in Control Tower at a later stage, if needed.
+
 ## AWS Config Rules
 
 If you would like to authorise other accounts to aggregate AWS Config data, account IDs and regions can be passed to `var.aws_config` using the attributes `aggregator_account_ids` and `aggregator_regions` respectively.
