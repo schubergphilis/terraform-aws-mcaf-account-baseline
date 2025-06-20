@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v4.0.0 - 2025-06-20
+
+### What's Changed
+
+#### 🚀 Features
+
+* breaking: add enable_additional_eu_regions variable (#23) @marwinbaumannsbp
+
+**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-account-baseline/compare/v3.0.0...v4.0.0
+
 ## v3.0.0 - 2025-05-21
 
 ### What's Changed
