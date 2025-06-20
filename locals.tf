@@ -7,4 +7,10 @@ locals {
       }
     ]
   ]) : []
+
+  regions_to_enable = var.enable_additional_eu_regions ? [
+    "eu-central-2", # Zurich
+    "eu-south-1",   # Milan
+    "eu-south-2",   # Spain
+  ] : []
 }

@@ -2,20 +2,32 @@
 
 This document captures required refactoring on your part when upgrading to a module version that contains breaking changes.
 
+## Upgrading to v4.0.0
+
+### Key Changes v4.0.0
+
+This version introduces automatic enablement of all non-default EU regions. Previously, users had to opt in to these regions via Control Tower also in use cases where full Control Tower governance was not required. To avoid throttling on large orgs, only non-default EU regions (eu-central-2, eu-south-1, eu-south-2) are enabled by default.
+
+### Variables v4.0.0
+
+The following variables have been added:
+
+- `enable_additional_eu_regions` (`bool`, default: `true`). Toggle automatic opt-in of non-default EU regions. Set to `false` to disable this behavior.
+
 ## Upgrading to v3.0.0
 
-### Key Changes
+### Key Changes v3.0.0
 
 This version sets secure defaults for regional public sharing of EC2 artifacts: block sharing newly created AMIs and EBS snapshots.
 
-### Variables
+### Variables v3.0.0
 
 The following variables have been added:
 
 - `aws_ec2_image_block_public_access`. Set to true to regionally block new AMIs from being publicly shared (false will set to `unblocked`).
 - `aws_ebs_snapshot_block_public_access`. Configure regionally the EBS snapshot public sharing policy (`block-new-sharing`), alternatives: `block-all-sharing` and `unblocked`.
 
-### How to upgrade
+### How to upgrade v3.0.0
 
 If the secure default (blocking new EC2 artifacts from sharing) is what you desire, then no action is required.
 If you want to deploy backwards compatibly, then:
@@ -25,7 +37,7 @@ If you want to deploy backwards compatibly, then:
 
 ## Upgrading to v2.0.0
 
-### Key Changes
+### Key Changes v2.0.0
 
 #### Transition to Centralized Security Hub Configuration
 
@@ -33,13 +45,13 @@ This version relies on the centralized security hub configuration as added in [t
 
 Using centralized security hub it's no longer possible to modify the AWS SecurityHub standards in the account itself, therefore this functionality has been removed from this module.
 
-### Variables
+### Variables v2.0.0
 
 The following variables have been removed:
 
 - `aws_security_hub_standards_arns`. This variable is not configurable anymore using security hub central configuration.
 
-### How to upgrade
+### How to upgrade v2.0.0
 
 1. Upgrade your landing zone deployment to v5.0.0 or higher FIRST, before updating your account-baseline to v2.0.0 or higher.
 
