@@ -66,6 +66,7 @@ This module can deploy the IAM role required by the [MCAF Service Quotas Manager
 
 | Name | Type |
 |------|------|
+| [aws_account_region.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/account_region) | resource |
 | [aws_config_aggregate_authorization.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_aggregate_authorization) | resource |
 | [aws_ebs_default_kms_key.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ebs_default_kms_key) | resource |
 | [aws_ebs_encryption_by_default.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ebs_encryption_by_default) | resource |
@@ -86,6 +87,7 @@ This module can deploy the IAM role required by the [MCAF Service Quotas Manager
 | <a name="input_aws_ec2_image_block_public_access"></a> [aws\_ec2\_image\_block\_public\_access](#input\_aws\_ec2\_image\_block\_public\_access) | Set to true to regionally block new AMIs from being publicly shared | `bool` | `true` | no |
 | <a name="input_aws_kms_key_arn"></a> [aws\_kms\_key\_arn](#input\_aws\_kms\_key\_arn) | The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volumes | `string` | `null` | no |
 | <a name="input_aws_s3_public_access_block_config"></a> [aws\_s3\_public\_access\_block\_config](#input\_aws\_s3\_public\_access\_block\_config) | S3 bucket-level Public Access Block config | <pre>object({<br/>    enabled                 = optional(bool, true)<br/>    block_public_acls       = optional(bool, true)<br/>    block_public_policy     = optional(bool, true)<br/>    ignore_public_acls      = optional(bool, true)<br/>    restrict_public_buckets = optional(bool, true)<br/>  })</pre> | `{}` | no |
+| <a name="input_enable_additional_eu_regions"></a> [enable\_additional\_eu\_regions](#input\_enable\_additional\_eu\_regions) | Enable all additional EU AWS Regions beyond the default ones | `bool` | `true` | no |
 | <a name="input_service_quotas_manager_role"></a> [service\_quotas\_manager\_role](#input\_service\_quotas\_manager\_role) | Create the role needed to integrate the terraform-aws-mcaf-service-quotas-manager module | <pre>object({<br/>    assuming_principal_identifier = string<br/>    path                          = optional(string, "/")<br/>    permissions_boundary          = optional(string, null)<br/>  })</pre> | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Map of tags | `map(string)` | `{}` | no |
 
