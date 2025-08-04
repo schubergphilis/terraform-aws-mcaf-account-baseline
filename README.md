@@ -60,6 +60,7 @@ This module can deploy the IAM role required by the [MCAF Service Quotas Manager
 
 | Name | Source | Version |
 |------|--------|---------|
+| <a name="module_regional_resources_baseline"></a> [regional\_resources\_baseline](#module\_regional\_resources\_baseline) | ./modules/regional-resources-baseline | n/a |
 | <a name="module_service_quota_manager_role"></a> [service\_quota\_manager\_role](#module\_service\_quota\_manager\_role) | schubergphilis/mcaf-role/aws | ~> 0.4.0 |
 
 ## Resources
@@ -74,7 +75,6 @@ This module can deploy the IAM role required by the [MCAF Service Quotas Manager
 | [aws_ec2_image_block_public_access.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_image_block_public_access) | resource |
 | [aws_iam_account_password_policy.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_account_password_policy) | resource |
 | [aws_s3_account_public_access_block.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_account_public_access_block) | resource |
-| [aws_ssm_service_setting.documents_public_sharing_permission](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_service_setting) | resource |
 | [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) | data source |
 
 ## Inputs
