@@ -1,3 +1,5 @@
+data "aws_region" "current" {}
+
 locals {
   aws_config_aggregators = var.aws_config != null ? flatten([
     for account in var.aws_config.aggregator_account_ids : [
@@ -13,4 +15,9 @@ locals {
     "eu-south-1",   # Milan
     "eu-south-2",   # Spain
   ] : []
+
+  regions_to_baseline = concat(
+    [data.aws_region.current.region],
+    var.extra_regions_to_baseline
+  )
 }

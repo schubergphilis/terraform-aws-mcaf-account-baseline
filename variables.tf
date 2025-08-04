@@ -69,7 +69,7 @@ variable "aws_ebs_snapshot_block_public_access" {
 variable "aws_ssm_documents_public_sharing_permission" {
   type        = string
   default     = "Disable"
-  description = "Configure regionally the SSM documents public sharing policy, alternatives: `Enable`"
+  description = "Configure the SSM documents public sharing policy, alternatives: `Enable`"
 
   validation {
     condition     = contains(["Disable", "Enable"], var.aws_ssm_documents_public_sharing_permission)
@@ -93,6 +93,12 @@ variable "enable_additional_eu_regions" {
   description = "Enable all additional EU AWS Regions beyond the default ones"
   type        = bool
   default     = true
+}
+
+variable "extra_regions_to_baseline" {
+  type        = list(string)
+  default     = ["us-east-1"]
+  description = "List of additional regions to apply the baseline, defaults to us-east-1"
 }
 
 variable "service_quotas_manager_role" {
