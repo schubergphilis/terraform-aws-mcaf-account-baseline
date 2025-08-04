@@ -53,6 +53,11 @@ resource "aws_s3_account_public_access_block" "default" {
   restrict_public_buckets = var.aws_s3_public_access_block_config.restrict_public_buckets
 }
 
+resource "aws_ssm_service_setting" "documents_public_sharing_permission" {
+  setting_id    = "/ssm/documents/console/public-sharing-permission"
+  setting_value = var.aws_ssm_documents_public_sharing_permission
+}
+
 module "service_quota_manager_role" {
   count = var.service_quotas_manager_role != null ? 1 : 0
 

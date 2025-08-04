@@ -66,6 +66,17 @@ variable "aws_ebs_snapshot_block_public_access" {
   }
 }
 
+variable "aws_ssm_documents_public_sharing_permission" {
+  type        = string
+  default     = "Disable"
+  description = "Configure regionally the SSM documents public sharing policy, alternatives: `Enable`"
+
+  validation {
+    condition     = contains(["Disable", "Enable"], var.aws_ssm_documents_public_sharing_permission)
+    error_message = "Allowed values for aws_ssm_documents_public_sharing_permission are: \"Disable\", \"Enable\"."
+  }
+}
+
 variable "aws_s3_public_access_block_config" {
   type = object({
     enabled                 = optional(bool, true)
