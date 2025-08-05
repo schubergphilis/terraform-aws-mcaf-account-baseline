@@ -1,3 +1,9 @@
+resource "aws_ebs_snapshot_block_public_access" "default" {
+  region = var.region
+
+  state  = var.aws_ebs_snapshot_block_public_access_state
+}
+
 resource "aws_ssm_service_setting" "documents_public_sharing_permission" {
   region = var.region
 

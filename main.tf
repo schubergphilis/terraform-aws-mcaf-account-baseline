@@ -40,10 +40,6 @@ resource "aws_ec2_image_block_public_access" "default" {
   state = var.aws_ec2_image_block_public_access ? "block-new-sharing" : "unblocked"
 }
 
-resource "aws_ebs_snapshot_block_public_access" "default" {
-  state = var.aws_ebs_snapshot_block_public_access
-}
-
 resource "aws_s3_account_public_access_block" "default" {
   count = var.aws_s3_public_access_block_config.enabled ? 1 : 0
 
@@ -59,6 +55,7 @@ module "regional_resources_baseline" {
   source = "./modules/regional-resources-baseline"
 
   region                                      = each.value
+  aws_ebs_snapshot_block_public_access_state  = var.aws_ebs_snapshot_block_public_access
   aws_ssm_documents_public_sharing_permission = var.aws_ssm_documents_public_sharing_permission
 }
 
