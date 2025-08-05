@@ -13,10 +13,6 @@ resource "aws_config_aggregate_authorization" "default" {
   tags       = var.tags
 }
 
-resource "aws_ebs_encryption_by_default" "default" {
-  enabled = var.aws_ebs_encryption_by_default
-}
-
 resource "aws_ebs_default_kms_key" "default" {
   count = var.aws_ebs_encryption_custom_key == true ? 1 : 0
 
@@ -36,6 +32,8 @@ resource "aws_iam_account_password_policy" "default" {
   require_uppercase_characters   = var.account_password_policy.require_uppercase_characters
 }
 
+# This is set regionally, but enforced account-wide, see:
+# https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-block-public-access-for-amis.html#enable-block-public-access-for-amis
 resource "aws_ec2_image_block_public_access" "default" {
   state = var.aws_ec2_image_block_public_access ? "block-new-sharing" : "unblocked"
 }
@@ -55,6 +53,7 @@ module "regional_resources_baseline" {
   source = "./modules/regional-resources-baseline"
 
   region                                      = each.value
+  aws_ebs_encryption_by_default               = var.aws_ebs_encryption_by_default
   aws_ebs_snapshot_block_public_access_state  = var.aws_ebs_snapshot_block_public_access
   aws_ssm_documents_public_sharing_permission = var.aws_ssm_documents_public_sharing_permission
 }

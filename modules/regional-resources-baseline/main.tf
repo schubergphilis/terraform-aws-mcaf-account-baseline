@@ -1,3 +1,9 @@
+resource "aws_ebs_encryption_by_default" "default" {
+  region = var.region
+
+  enabled = var.aws_ebs_encryption_by_default
+}
+
 resource "aws_ebs_snapshot_block_public_access" "default" {
   region = var.region
 
