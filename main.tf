@@ -54,9 +54,11 @@ resource "aws_s3_account_public_access_block" "default" {
 }
 
 module "regional_resources_baseline" {
+  for_each = toset(local.regions_to_baseline)
+
   source = "./modules/regional-resources-baseline"
 
-  regions_to_baseline                         = toset(local.regions_to_baseline)
+  region                                      = each.value
   aws_ssm_documents_public_sharing_permission = var.aws_ssm_documents_public_sharing_permission
 }
 

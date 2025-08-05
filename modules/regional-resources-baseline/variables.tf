@@ -1,5 +1,5 @@
-variable "regions_to_baseline" {
-  type = set(string)
+variable "region" {
+  type = string
 }
 
 variable "aws_ssm_documents_public_sharing_permission" {
