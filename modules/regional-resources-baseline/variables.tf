@@ -3,7 +3,7 @@ variable "region" {
 }
 
 variable "aws_ebs_encryption_by_default" {
-  type = string
+  type = bool
 }
 
 variable "aws_ebs_snapshot_block_public_access_state" {

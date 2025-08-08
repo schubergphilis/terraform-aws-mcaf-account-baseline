@@ -21,7 +21,7 @@ The following variables have been added:
 ### How to upgrade v5.0.0
 
 The regional resources had to be moved to a separate module.
-To prevent recreating resources use this example snippet as an example for the appropriate resources:
+To prevent recreating resources use this snippet as an example for the appropriate resources:
 
 ```hcl
 moved {
