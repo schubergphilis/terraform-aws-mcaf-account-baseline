@@ -25,7 +25,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_aws_ebs_encryption_by_default"></a> [aws\_ebs\_encryption\_by\_default](#input\_aws\_ebs\_encryption\_by\_default) | n/a | `string` | n/a | yes |
+| <a name="input_aws_ebs_encryption_by_default"></a> [aws\_ebs\_encryption\_by\_default](#input\_aws\_ebs\_encryption\_by\_default) | n/a | `bool` | n/a | yes |
 | <a name="input_aws_ebs_snapshot_block_public_access_state"></a> [aws\_ebs\_snapshot\_block\_public\_access\_state](#input\_aws\_ebs\_snapshot\_block\_public\_access\_state) | n/a | `string` | n/a | yes |
 | <a name="input_aws_ssm_documents_public_sharing_permission"></a> [aws\_ssm\_documents\_public\_sharing\_permission](#input\_aws\_ssm\_documents\_public\_sharing\_permission) | n/a | `string` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | n/a | `string` | n/a | yes |
