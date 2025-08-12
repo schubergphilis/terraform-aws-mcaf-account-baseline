@@ -13,10 +13,6 @@ resource "aws_config_aggregate_authorization" "default" {
   tags       = var.tags
 }
 
-resource "aws_ebs_encryption_by_default" "default" {
-  enabled = var.aws_ebs_encryption_by_default
-}
-
 resource "aws_ebs_default_kms_key" "default" {
   count = var.aws_ebs_encryption_custom_key == true ? 1 : 0
 
@@ -36,12 +32,10 @@ resource "aws_iam_account_password_policy" "default" {
   require_uppercase_characters   = var.account_password_policy.require_uppercase_characters
 }
 
+# This is set regionally, but enforced account-wide, see:
+# https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-block-public-access-for-amis.html#enable-block-public-access-for-amis
 resource "aws_ec2_image_block_public_access" "default" {
   state = var.aws_ec2_image_block_public_access ? "block-new-sharing" : "unblocked"
-}
-
-resource "aws_ebs_snapshot_block_public_access" "default" {
-  state = var.aws_ebs_snapshot_block_public_access
 }
 
 resource "aws_s3_account_public_access_block" "default" {
@@ -51,6 +45,17 @@ resource "aws_s3_account_public_access_block" "default" {
   block_public_policy     = var.aws_s3_public_access_block_config.block_public_policy
   ignore_public_acls      = var.aws_s3_public_access_block_config.ignore_public_acls
   restrict_public_buckets = var.aws_s3_public_access_block_config.restrict_public_buckets
+}
+
+module "regional_resources_baseline" {
+  for_each = toset(local.regions_to_baseline)
+
+  source = "./modules/regional-resources-baseline"
+
+  region                                      = each.value
+  aws_ebs_encryption_by_default               = var.aws_ebs_encryption_by_default
+  aws_ebs_snapshot_block_public_access_state  = var.aws_ebs_snapshot_block_public_access
+  aws_ssm_documents_public_sharing_permission = var.aws_ssm_documents_public_sharing_permission
 }
 
 module "service_quota_manager_role" {

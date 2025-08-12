@@ -2,6 +2,45 @@
 
 This document captures required refactoring on your part when upgrading to a module version that contains breaking changes.
 
+## Upgrading to v5.0.0
+
+### Key Changes v5.0.0
+
+This baseline can now apply its best practices on multiple regions where relevant.
+By default this module will now set its baseline also in the `us-east-1` region, because most workloads need a slim environment there for management purposes.
+
+Furthermore this version sets secure defaults for regional public sharing of SSM documents: disable.
+
+### Variables v5.0.0
+
+The following variables have been added:
+
+- `extra_regions_to_baseline`. List of regions in which to apply this baseline in addition to the provider's region, default: `["us-east-1"]`.
+- `aws_ssm_documents_public_sharing_permission`. Configure SSM public document sharing (`Disable`), alternatives: `Enable`.
+
+### How to upgrade v5.0.0
+
+The regional resources had to be moved to a separate module.
+To prevent recreating resources use this snippet as an example for the appropriate resources:
+
+```hcl
+moved {
+  from = module.this_account_baseline.aws_ebs_encryption_by_default.default
+  to   = module.this_account_baseline.module.regional_resources_baseline["eu-west-1"].aws_ebs_encryption_by_default.default
+}
+
+moved {
+  from = module.this_account_baseline.aws_ebs_snapshot_block_public_access.default
+  to   = module.this_account_baseline.module.regional_resources_baseline["eu-west-1"].aws_ebs_snapshot_block_public_access.default
+}
+```
+
+If the secure default (blocking SSM public document sharing, multi-region) is what you desire, then no action is required for variables.
+If you want to deploy backwards compatibly, then:
+
+- Set `extra_regions_to_baseline` to `[]`.
+- Set `aws_ssm_documents_public_sharing_permission` to `Enable`.
+
 ## Upgrading to v4.0.0
 
 ### Key Changes v4.0.0
