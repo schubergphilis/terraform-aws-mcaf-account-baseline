@@ -16,8 +16,8 @@ locals {
     "eu-south-2",   # Spain
   ] : []
 
-  regions_to_baseline = concat(
+  regions_to_baseline = distinct(concat(
     [data.aws_region.current.region],
     var.extra_regions_to_baseline
-  )
+  ))
 }
