@@ -61,7 +61,7 @@ This module can deploy the IAM role required by the [MCAF Service Quotas Manager
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_regional_resources_baseline"></a> [regional\_resources\_baseline](#module\_regional\_resources\_baseline) | ./modules/regional-resources-baseline | n/a |
-| <a name="module_service_quota_manager_role"></a> [service\_quota\_manager\_role](#module\_service\_quota\_manager\_role) | schubergphilis/mcaf-role/aws | ~> 0.4.0 |
+| <a name="module_service_quota_manager_role"></a> [service\_quota\_manager\_role](#module\_service\_quota\_manager\_role) | schubergphilis/mcaf-role/aws | ~> 0.5.3 |
 
 ## Resources
 
@@ -83,8 +83,8 @@ This module can deploy the IAM role required by the [MCAF Service Quotas Manager
 | <a name="input_aws_config"></a> [aws\_config](#input\_aws\_config) | AWS Config settings | <pre>object({<br/>    aggregator_account_ids = list(string)<br/>    aggregator_regions     = list(string)<br/>  })</pre> | `null` | no |
 | <a name="input_aws_ebs_encryption_by_default"></a> [aws\_ebs\_encryption\_by\_default](#input\_aws\_ebs\_encryption\_by\_default) | Set to true to enable AWS Elastic Block Store encryption by default | `bool` | `true` | no |
 | <a name="input_aws_ebs_encryption_custom_key"></a> [aws\_ebs\_encryption\_custom\_key](#input\_aws\_ebs\_encryption\_custom\_key) | Set to true and specify the `aws_kms_key_arn` to use in place of the AWS-managed default CMK | `bool` | `false` | no |
-| <a name="input_aws_ebs_snapshot_block_public_access"></a> [aws\_ebs\_snapshot\_block\_public\_access](#input\_aws\_ebs\_snapshot\_block\_public\_access) | Configure regionally the EBS snapshot public sharing policy, alternatives: `block-all-sharing` and `unblocked` | `string` | `"block-new-sharing"` | no |
-| <a name="input_aws_ec2_image_block_public_access"></a> [aws\_ec2\_image\_block\_public\_access](#input\_aws\_ec2\_image\_block\_public\_access) | Set to true to regionally block new AMIs from being publicly shared | `bool` | `true` | no |
+| <a name="input_aws_ebs_snapshot_block_public_access_state"></a> [aws\_ebs\_snapshot\_block\_public\_access\_state](#input\_aws\_ebs\_snapshot\_block\_public\_access\_state) | Configure regionally the EBS snapshot public sharing policy, alternatives: `block-all-sharing` and `unblocked` | `string` | `"block-new-sharing"` | no |
+| <a name="input_aws_ec2_image_block_public_access_state"></a> [aws\_ec2\_image\_block\_public\_access\_state](#input\_aws\_ec2\_image\_block\_public\_access\_state) | Configure blocking new AMIs from being publicly shared, alternatives: `unblocked` | `string` | `"block-new-sharing"` | no |
 | <a name="input_aws_kms_key_arn"></a> [aws\_kms\_key\_arn](#input\_aws\_kms\_key\_arn) | The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volumes | `string` | `null` | no |
 | <a name="input_aws_s3_public_access_block_config"></a> [aws\_s3\_public\_access\_block\_config](#input\_aws\_s3\_public\_access\_block\_config) | S3 bucket-level Public Access Block config | <pre>object({<br/>    enabled                 = optional(bool, true)<br/>    block_public_acls       = optional(bool, true)<br/>    block_public_policy     = optional(bool, true)<br/>    ignore_public_acls      = optional(bool, true)<br/>    restrict_public_buckets = optional(bool, true)<br/>  })</pre> | `{}` | no |
 | <a name="input_aws_ssm_documents_public_sharing_permission"></a> [aws\_ssm\_documents\_public\_sharing\_permission](#input\_aws\_ssm\_documents\_public\_sharing\_permission) | Configure the SSM documents public sharing policy, alternatives: `Enable` | `string` | `"Disable"` | no |

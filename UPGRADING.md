@@ -2,6 +2,21 @@
 
 This document captures required refactoring on your part when upgrading to a module version that contains breaking changes.
 
+## Upgrading to v6.0.0
+
+### Key Changes v6.0.0
+
+- Align variable naming between the [mcaf-landing-zone](https://github.com/schubergphilis/terraform-aws-mcaf-landing-zone) module and this module.
+- Upgrade dependencies to latest version.
+- Solve deprecation warning of the `aws_config_aggregate_authorization` resource. This will result in a recreation. This cannot be prevented with a moved statement, but it has no impact — the resource will be deleted and recreated within a few seconds.
+
+### Variables v6.0.0
+
+The following variables have been renamed:
+
+- `aws_ec2_image_block_public_access` -> `aws_ebs_snapshot_block_public_access_state`. Note that the type changed from a `bool` to a `string` as well. The default behaviour out of the box stayed the same. 
+- `aws_ebs_snapshot_block_public_access` -> `aws_ec2_image_block_public_access_state`.
+
 ## Upgrading to v5.0.0
 
 ### Key Changes v5.0.0
