@@ -8,9 +8,9 @@ resource "aws_account_region" "default" {
 resource "aws_config_aggregate_authorization" "default" {
   for_each = { for aggregator in local.aws_config_aggregators : "${aggregator.account_id}-${aggregator.region}" => aggregator }
 
-  account_id = each.value.account_id
-  region     = each.value.region
-  tags       = var.tags
+  account_id            = each.value.account_id
+  authorized_aws_region = each.value.region
+  tags                  = var.tags
 }
 
 resource "aws_ebs_default_kms_key" "default" {
@@ -35,7 +35,7 @@ resource "aws_iam_account_password_policy" "default" {
 # This is set regionally, but enforced account-wide, see:
 # https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-block-public-access-for-amis.html#enable-block-public-access-for-amis
 resource "aws_ec2_image_block_public_access" "default" {
-  state = var.aws_ec2_image_block_public_access ? "block-new-sharing" : "unblocked"
+  state = var.aws_ec2_image_block_public_access_state
 }
 
 resource "aws_s3_account_public_access_block" "default" {
@@ -54,7 +54,7 @@ module "regional_resources_baseline" {
 
   region                                      = each.value
   aws_ebs_encryption_by_default               = var.aws_ebs_encryption_by_default
-  aws_ebs_snapshot_block_public_access_state  = var.aws_ebs_snapshot_block_public_access
+  aws_ebs_snapshot_block_public_access_state  = var.aws_ebs_snapshot_block_public_access_state
   aws_ssm_documents_public_sharing_permission = var.aws_ssm_documents_public_sharing_permission
 }
 
@@ -62,7 +62,7 @@ module "service_quota_manager_role" {
   count = var.service_quotas_manager_role != null ? 1 : 0
 
   source  = "schubergphilis/mcaf-role/aws"
-  version = "~> 0.4.0"
+  version = "~> 0.5.3"
 
   name                  = "ServiceQuotasManager"
   create_policy         = true
