@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v6.0.0 - 2025-10-28
+
+### What's Changed
+
+#### 🚀 Features
+
+* feat!: align variable naming with mcaf-landing-zone and solve deprecation warnings (#27) @marwinbaumannsbp
+
+**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-account-baseline/compare/v5.0.1...v6.0.0
+
 ## v5.0.1 - 2025-10-20
 
 ### What's Changed
