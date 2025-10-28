@@ -46,7 +46,7 @@ variable "aws_ebs_encryption_custom_key" {
 variable "aws_kms_key_arn" {
   type        = string
   default     = null
-  description = "The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volumes"
+  description = "The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volumes and SSM Automation CloudWatch Log group"
 }
 
 variable "aws_ec2_image_block_public_access_state" {
@@ -69,6 +69,18 @@ variable "aws_ebs_snapshot_block_public_access_state" {
     condition     = contains(["unblocked", "block-new-sharing", "block-all-sharing"], var.aws_ebs_snapshot_block_public_access_state)
     error_message = "Allowed values for aws_ebs_snapshot_block_public_access_state are: \"unblocked\", \"block-new-sharing\", \"block-all-sharing\"."
   }
+}
+
+variable "aws_ssm_automation_logging_enabled" {
+  type        = bool
+  default     = true
+  description = "When true, enable SSM Automation customer-script logging to CloudWatch Logs in each baseline region."
+}
+
+variable "aws_ssm_automation_log_group_name" {
+  type        = string
+  default     = "/aws/ssm/automation"
+  description = "CloudWatch Logs log group name for SSM Automation."
 }
 
 variable "aws_ssm_documents_public_sharing_permission" {
