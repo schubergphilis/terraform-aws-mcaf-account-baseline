@@ -5,6 +5,14 @@ resource "aws_ebs_encryption_by_default" "default" {
   enabled = var.aws_ebs_encryption_by_default
 }
 
+# EBS default KMS key (only when custom key is enabled AND a key for this region is provided)
+resource "aws_ebs_default_kms_key" "default" {
+  count = var.aws_ebs_encryption_custom_key && try(var.aws_kms_key_arns[var.region], null) != null ? 1 : 0
+
+  region  = var.region
+  key_arn = var.aws_kms_key_arns[var.region]
+}
+
 # Security Hub control: EC2.1
 resource "aws_ebs_snapshot_block_public_access" "default" {
   region = var.region
@@ -27,7 +35,7 @@ resource "aws_cloudwatch_log_group" "ssm_automation" {
   region            = var.region
   name              = var.aws_ssm_automation_log_group_name
   retention_in_days = 365
-  kms_key_id        = var.aws_kms_key_arn
+  kms_key_id        = try(var.aws_kms_key_arns[var.region], null) # attach key if provided for this region
   tags              = var.tags
 }
 

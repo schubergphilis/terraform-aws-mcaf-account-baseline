@@ -40,13 +40,13 @@ variable "aws_ebs_encryption_by_default" {
 variable "aws_ebs_encryption_custom_key" {
   type        = bool
   default     = false
-  description = "Set to true and specify the `aws_kms_key_arn` to use in place of the AWS-managed default CMK"
+  description = "Set to true and specify the `aws_kms_key_arns` to use in place of the AWS-managed default CMK"
 }
 
-variable "aws_kms_key_arn" {
-  type        = string
-  default     = null
-  description = "The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volumes and SSM Automation CloudWatch Log group"
+variable "aws_kms_key_arns" {
+  type        = map(string)
+  default     = {}
+  description = "Map of region name => KMS Key ARN to use for EBS default encryption (and optionally other resources). Safely attaches/creates KMS resources only when a key for the region exists."
 }
 
 variable "aws_ec2_image_block_public_access_state" {
