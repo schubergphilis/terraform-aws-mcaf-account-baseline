@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v7.0.1 - 2025-10-31
+
+### What's Changed
+
+#### 🐛 Bug Fixes
+
+* bug: solve known after apply issue with the aws_ebs_default_kms_key resource (#30) @marwinbaumannsbp
+
+**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-account-baseline/compare/v7.0.0...v7.0.1
+
 ## v7.0.0 - 2025-10-31
 
 ### What's Changed
