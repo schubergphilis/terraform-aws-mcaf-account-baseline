@@ -13,12 +13,6 @@ resource "aws_config_aggregate_authorization" "default" {
   tags                  = var.tags
 }
 
-resource "aws_ebs_default_kms_key" "default" {
-  count = var.aws_ebs_encryption_custom_key == true ? 1 : 0
-
-  key_arn = var.aws_kms_key_arn
-}
-
 # Security Hub control: IAM.7, IAM.10, IAM.11, IAM.12, IAM.13, IAM.14, IAM.15, IAM.16, IAM.17
 resource "aws_iam_account_password_policy" "default" {
   count = var.account_password_policy != null ? 1 : 0
@@ -57,8 +51,9 @@ module "regional_resources_baseline" {
 
   region                                      = each.value
   aws_ebs_encryption_by_default               = var.aws_ebs_encryption_by_default
+  aws_ebs_encryption_custom_key               = var.aws_ebs_encryption_custom_key
   aws_ebs_snapshot_block_public_access_state  = var.aws_ebs_snapshot_block_public_access_state
-  aws_kms_key_arn                             = var.aws_kms_key_arn
+  aws_kms_key_arns                            = var.aws_kms_key_arns
   aws_ssm_automation_log_group_name           = var.aws_ssm_automation_log_group_name
   aws_ssm_automation_logging_enabled          = var.aws_ssm_automation_logging_enabled
   aws_ssm_documents_public_sharing_permission = var.aws_ssm_documents_public_sharing_permission
