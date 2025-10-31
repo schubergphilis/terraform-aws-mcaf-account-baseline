@@ -18,6 +18,7 @@ No modules.
 | Name | Type |
 |------|------|
 | [aws_cloudwatch_log_group.ssm_automation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_group) | resource |
+| [aws_ebs_default_kms_key.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ebs_default_kms_key) | resource |
 | [aws_ebs_encryption_by_default.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ebs_encryption_by_default) | resource |
 | [aws_ebs_snapshot_block_public_access.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ebs_snapshot_block_public_access) | resource |
 | [aws_ssm_service_setting.automation_log_destination](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_service_setting) | resource |
@@ -34,7 +35,8 @@ No modules.
 | <a name="input_aws_ssm_automation_logging_enabled"></a> [aws\_ssm\_automation\_logging\_enabled](#input\_aws\_ssm\_automation\_logging\_enabled) | n/a | `bool` | n/a | yes |
 | <a name="input_aws_ssm_documents_public_sharing_permission"></a> [aws\_ssm\_documents\_public\_sharing\_permission](#input\_aws\_ssm\_documents\_public\_sharing\_permission) | n/a | `string` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | n/a | `string` | n/a | yes |
-| <a name="input_aws_kms_key_arn"></a> [aws\_kms\_key\_arn](#input\_aws\_kms\_key\_arn) | n/a | `string` | `null` | no |
+| <a name="input_aws_ebs_encryption_custom_key"></a> [aws\_ebs\_encryption\_custom\_key](#input\_aws\_ebs\_encryption\_custom\_key) | n/a | `bool` | `false` | no |
+| <a name="input_aws_kms_key_arns"></a> [aws\_kms\_key\_arns](#input\_aws\_kms\_key\_arns) | n/a | `map(string)` | `{}` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | n/a | `map(string)` | `{}` | no |
 
 ## Outputs
