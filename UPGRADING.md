@@ -17,6 +17,17 @@ The following variables have been renamed:
 
 - `aws_kms_key_arn` -> `aws_kms_key_arns`. Type changed from string to map(string).
 
+### How to upgrade v7.0.0
+
+The `aws_ebs_default_kms_key` had to be moved to a separate module.
+To prevent recreating resources use this snippet as an example for the appropriate resources:
+
+```hcl
+moved {
+  from = module.this_account_baseline.aws_ebs_encryption_by_default.default
+  to   = module.this_account_baseline.module.regional_resources_baseline["eu-west-1"].aws_ebs_encryption_by_default.default
+}
+
 ## Upgrading to v6.0.0
 
 ### Key Changes v6.0.0

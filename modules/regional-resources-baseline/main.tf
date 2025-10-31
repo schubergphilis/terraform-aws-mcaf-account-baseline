@@ -5,7 +5,7 @@ resource "aws_ebs_encryption_by_default" "default" {
   enabled = var.aws_ebs_encryption_by_default
 }
 
-# EBS default KMS key (only when custom key is enabled AND a key for this region is provided)
+# Default KMS key to use for EBS encryption
 resource "aws_ebs_default_kms_key" "default" {
   count = var.aws_ebs_encryption_custom_key && try(var.aws_kms_key_arns[var.region], null) != null ? 1 : 0
 
