@@ -7,7 +7,7 @@ resource "aws_ebs_encryption_by_default" "default" {
 
 # Default KMS key to use for EBS encryption
 resource "aws_ebs_default_kms_key" "default" {
-  count = var.aws_ebs_encryption_custom_key && try(var.aws_kms_key_arns[var.region], null) != null ? 1 : 0
+  count = var.aws_ebs_encryption_custom_key ? 1 : 0
 
   region  = var.region
   key_arn = var.aws_kms_key_arns[var.region]

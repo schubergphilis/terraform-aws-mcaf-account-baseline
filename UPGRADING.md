@@ -7,7 +7,7 @@ This document captures required refactoring on your part when upgrading to a mod
 ### Key Changes v7.0.0
 
 - Switch from a single `aws_kms_key_arn` to a per-region map `aws_kms_key_arns` variable.
-- Creates/attaches the EBS default KMS key only if a key for the region is provided and `aws_ebs_encryption_custom_key = true`.
+- Creates/attaches the EBS default KMS key if `aws_ebs_encryption_custom_key = true`.
 - Sets the SSM Automation log group `kms_key_id` if a key for the region is provided.
 - multi-region support for the `aws_ebs_default_kms_key` resource is added.
 
