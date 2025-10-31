@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v7.0.0 - 2025-10-31
+
+### What's Changed
+
+#### 🚀 Features
+
+* feat!: switch to per-region KMS keys to enable multi-region EBS default encryption and optionally ssm automation log group encryption (#29) @marwinbaumannsbp
+
+**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-account-baseline/compare/v6.1.0...v7.0.0
+
 ## v6.1.0 - 2025-10-28
 
 ### What's Changed
