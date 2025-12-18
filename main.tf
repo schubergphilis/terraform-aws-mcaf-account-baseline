@@ -49,15 +49,16 @@ module "regional_resources_baseline" {
 
   source = "./modules/regional-resources-baseline"
 
-  region                                      = each.value
-  aws_ebs_encryption_by_default               = var.aws_ebs_encryption_by_default
-  aws_ebs_encryption_custom_key               = var.aws_ebs_encryption_custom_key
-  aws_ebs_snapshot_block_public_access_state  = var.aws_ebs_snapshot_block_public_access_state
-  aws_kms_key_arns                            = var.aws_kms_key_arns
-  aws_ssm_automation_log_group_name           = var.aws_ssm_automation_log_group_name
-  aws_ssm_automation_logging_enabled          = var.aws_ssm_automation_logging_enabled
-  aws_ssm_documents_public_sharing_permission = var.aws_ssm_documents_public_sharing_permission
-  tags                                        = var.tags
+  region                                           = each.value
+  aws_ebs_encryption_by_default                    = var.aws_ebs_encryption_by_default
+  aws_ebs_encryption_custom_key                    = var.aws_ebs_encryption_custom_key
+  aws_ebs_snapshot_block_public_access_state       = var.aws_ebs_snapshot_block_public_access_state
+  manage_ebs_snapshot_block_public_access_resource = var.manage_ebs_snapshot_block_public_access_resource
+  aws_kms_key_arns                                 = var.aws_kms_key_arns
+  aws_ssm_automation_log_group_name                = var.aws_ssm_automation_log_group_name
+  aws_ssm_automation_logging_enabled               = var.aws_ssm_automation_logging_enabled
+  aws_ssm_documents_public_sharing_permission      = var.aws_ssm_documents_public_sharing_permission
+  tags                                             = var.tags
 }
 
 module "service_quota_manager_role" {
