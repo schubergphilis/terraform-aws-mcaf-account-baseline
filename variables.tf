@@ -55,8 +55,8 @@ variable "aws_ec2_image_block_public_access_state" {
   description = "Configure blocking new AMIs from being publicly shared, alternatives: `unblocked`"
 
   validation {
-    condition     = contains(["block-new-sharing", "unblocked"], var.aws_ec2_image_block_public_access_state)
-    error_message = "Allowed values for aws_ec2_image_block_public_access_state are: \"block-new-sharing\", \"unblocked\"."
+    condition     = contains(["block-new-sharing", "unblocked", null], var.aws_ec2_image_block_public_access_state)
+    error_message = "Allowed values for aws_ec2_image_block_public_access_state are: \"block-new-sharing\", \"unblocked\". Optionally null if you use declarative policies at Org level."
   }
 }
 
