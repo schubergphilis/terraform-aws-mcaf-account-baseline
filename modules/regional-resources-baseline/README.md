@@ -37,6 +37,7 @@ No modules.
 | <a name="input_region"></a> [region](#input\_region) | n/a | `string` | n/a | yes |
 | <a name="input_aws_ebs_encryption_custom_key"></a> [aws\_ebs\_encryption\_custom\_key](#input\_aws\_ebs\_encryption\_custom\_key) | n/a | `bool` | `false` | no |
 | <a name="input_aws_kms_key_arns"></a> [aws\_kms\_key\_arns](#input\_aws\_kms\_key\_arns) | n/a | `map(string)` | `{}` | no |
+| <a name="input_manage_ebs_snapshot_block_public_access_resource"></a> [manage\_ebs\_snapshot\_block\_public\_access\_resource](#input\_manage\_ebs\_snapshot\_block\_public\_access\_resource) | n/a | `bool` | `true` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | n/a | `map(string)` | `{}` | no |
 
 ## Outputs
