@@ -47,7 +47,7 @@ This module can deploy the IAM role required by the [MCAF Service Quotas Manager
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.7.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9.0 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 6.7.0 |
 
 ## Providers
@@ -91,6 +91,7 @@ This module can deploy the IAM role required by the [MCAF Service Quotas Manager
 | <a name="input_aws_ssm_documents_public_sharing_permission"></a> [aws\_ssm\_documents\_public\_sharing\_permission](#input\_aws\_ssm\_documents\_public\_sharing\_permission) | Configure the SSM documents public sharing policy, alternatives: `Enable` | `string` | `"Disable"` | no |
 | <a name="input_enable_additional_eu_regions"></a> [enable\_additional\_eu\_regions](#input\_enable\_additional\_eu\_regions) | Enable all additional EU AWS Regions beyond the default ones | `bool` | `true` | no |
 | <a name="input_extra_regions_to_baseline"></a> [extra\_regions\_to\_baseline](#input\_extra\_regions\_to\_baseline) | List of additional regions to apply the baseline, defaults to us-east-1 | `list(string)` | <pre>[<br/>  "us-east-1"<br/>]</pre> | no |
+| <a name="input_manage_ebs_snapshot_block_public_access_resource"></a> [manage\_ebs\_snapshot\_block\_public\_access\_resource](#input\_manage\_ebs\_snapshot\_block\_public\_access\_resource) | When Declarative policies are enabled this resource should be unmanaged else keep as is. | `bool` | `true` | no |
 | <a name="input_service_quotas_manager_role"></a> [service\_quotas\_manager\_role](#input\_service\_quotas\_manager\_role) | Create the role needed to integrate the terraform-aws-mcaf-service-quotas-manager module | <pre>object({<br/>    assuming_principal_identifier = string<br/>    path                          = optional(string, "/")<br/>    permissions_boundary          = optional(string, null)<br/>  })</pre> | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Map of tags | `map(string)` | `{}` | no |
 
