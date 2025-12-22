@@ -15,11 +15,6 @@ variable "aws_ebs_snapshot_block_public_access_state" {
   type = string
 }
 
-variable "manage_ebs_snapshot_block_public_access_resource" {
-  type    = bool
-  default = true
-}
-
 variable "aws_kms_key_arns" {
   type    = map(string)
   default = {}

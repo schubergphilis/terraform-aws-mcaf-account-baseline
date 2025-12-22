@@ -66,23 +66,9 @@ variable "aws_ebs_snapshot_block_public_access_state" {
   description = "Configure regionally the EBS snapshot public sharing policy, alternatives: `block-all-sharing` and `unblocked`"
 
   validation {
-    condition = (
-      var.manage_ebs_snapshot_block_public_access_resource == true &&
-      contains(["unblocked", "block-new-sharing", "block-all-sharing"], var.aws_ebs_snapshot_block_public_access_state)
-      ||
-      (
-        var.manage_ebs_snapshot_block_public_access_resource == false
-      )
-    )
-    error_message = "Allowed values for aws_ebs_snapshot_block_public_access_state are: \"unblocked\", \"block-new-sharing\", \"block-all-sharing\" when manage_ebs_snapshot_block_public_access_resource is true"
+    condition     = contains(["unblocked", "block-new-sharing", "block-all-sharing"], var.aws_ebs_snapshot_block_public_access_state)
+    error_message = "Allowed values for aws_ebs_snapshot_block_public_access_state are: \"unblocked\", \"block-new-sharing\", \"block-all-sharing\"."
   }
-}
-
-variable "manage_ebs_snapshot_block_public_access_resource" {
-  type        = bool
-  default     = true
-  description = "When Declarative policies are enabled this resource should be unmanaged else keep as is."
-
 }
 
 variable "aws_ssm_automation_logging_enabled" {
