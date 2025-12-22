@@ -55,8 +55,8 @@ variable "aws_ec2_image_block_public_access_state" {
   description = "Configure blocking new AMIs from being publicly shared, alternatives: `unblocked`"
 
   validation {
-    condition     = contains(["block-new-sharing", "unblocked", null], var.aws_ec2_image_block_public_access_state)
-    error_message = "Allowed values for aws_ec2_image_block_public_access_state are: \"block-new-sharing\", \"unblocked\". Optionally null if you use declarative policies at Org level."
+    condition     = contains(["block-new-sharing", "unblocked"], var.aws_ec2_image_block_public_access_state)
+    error_message = "Allowed values for aws_ec2_image_block_public_access_state are: \"block-new-sharing\", \"unblocked\"."
   }
 }
 
@@ -66,7 +66,8 @@ variable "aws_ebs_snapshot_block_public_access_state" {
   description = "Configure regionally the EBS snapshot public sharing policy, alternatives: `block-all-sharing` and `unblocked`"
 
   validation {
-    condition     = contains(["unblocked", "block-new-sharing", "block-all-sharing"], var.aws_ebs_snapshot_block_public_access_state)
+    condition = (var.aws_ebs_snapshot_block_public_access_state == null ||
+    contains(["unblocked", "block-new-sharing", "block-all-sharing"], var.aws_ebs_snapshot_block_public_access_state))
     error_message = "Allowed values for aws_ebs_snapshot_block_public_access_state are: \"unblocked\", \"block-new-sharing\", \"block-all-sharing\"."
   }
 }
