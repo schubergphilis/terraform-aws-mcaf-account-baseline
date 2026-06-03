@@ -60,14 +60,19 @@ variable "aws_ec2_image_block_public_access_state" {
   }
 }
 
+variable "aws_ebs_snapshot_block_public_access_enabled" {
+  type        = bool
+  default     = true
+  description = "Whether to manage EBS snapshot block public access at the regional level. Set to false to opt out when the setting is governed at the AWS Organization level via Declarative Policies."
+}
+
 variable "aws_ebs_snapshot_block_public_access_state" {
   type        = string
   default     = "block-new-sharing"
-  description = "Configure regionally the EBS snapshot public sharing policy, alternatives: `block-all-sharing` and `unblocked`. Use `null` to explicitly opt out of regional configuration when the setting is governed at the AWS Organization level via Declarative Policies."
+  description = "Configure regionally the EBS snapshot public sharing policy, alternatives: `block-all-sharing` and `unblocked`"
 
   validation {
-    condition = (var.aws_ebs_snapshot_block_public_access_state == null ||
-    contains(["unblocked", "block-new-sharing", "block-all-sharing"], var.aws_ebs_snapshot_block_public_access_state))
+    condition     = contains(["unblocked", "block-new-sharing", "block-all-sharing"], var.aws_ebs_snapshot_block_public_access_state)
     error_message = "Allowed values for aws_ebs_snapshot_block_public_access_state are: \"unblocked\", \"block-new-sharing\", \"block-all-sharing\"."
   }
 }

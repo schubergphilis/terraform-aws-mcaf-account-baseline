@@ -15,7 +15,7 @@ resource "aws_ebs_default_kms_key" "default" {
 
 # Security Hub control: EC2.1
 resource "aws_ebs_snapshot_block_public_access" "default" {
-  count = var.aws_ebs_snapshot_block_public_access_state != null ? 1 : 0
+  count = var.aws_ebs_snapshot_block_public_access_enabled ? 1 : 0
 
   region = var.region
 

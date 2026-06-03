@@ -11,6 +11,10 @@ variable "aws_ebs_encryption_custom_key" {
   default = false
 }
 
+variable "aws_ebs_snapshot_block_public_access_enabled" {
+  type = bool
+}
+
 variable "aws_ebs_snapshot_block_public_access_state" {
   type = string
 }
