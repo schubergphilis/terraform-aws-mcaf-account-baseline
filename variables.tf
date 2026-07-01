@@ -63,7 +63,7 @@ variable "aws_ec2_image_block_public_access_state" {
 variable "aws_ebs_snapshot_block_public_access_state" {
   type        = string
   default     = "block-new-sharing"
-  description = "Configure regionally the EBS snapshot public sharing policy, alternatives: `block-all-sharing` and `unblocked`. Use `null` to explicitly opt out of regional configuration when the setting is governed at the AWS Organization level via Declarative Policies."
+  description = "Configure regionally the EBS snapshot public sharing policy, alternatives: `block-all-sharing` and `unblocked`. Not `null` but `unblocked` should be chosen to explicitly opt out of regional configuration when the setting is governed at the AWS Organization level via Declarative Policies."
 
   validation {
     condition = (var.aws_ebs_snapshot_block_public_access_state == null ||
