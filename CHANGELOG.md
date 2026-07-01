@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v7.1.1 - 2026-07-01
+
+### What's Changed
+
+#### 🐛 Bug Fixes
+
+* fix: Skip EBS snapshot public access block resource when state is unblocked (#34) @mayur7436
+
+**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-account-baseline/compare/v7.1.0...v7.1.1
+
 ## v7.1.0 - 2025-12-22
 
 ### What's Changed
