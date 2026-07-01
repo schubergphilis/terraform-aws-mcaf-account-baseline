@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v7.1.0 - 2025-12-22
+
+### What's Changed
+
+#### 🚀 Features
+
+* feat: Allow for disabling of EBS Block Public Access settings when utilizing AWS Declarative Policies at the Organization level.  (#32 ) @antonsmit-sbp
+
+**Full Changelog**: https://github.com/schubergphilis/terraform-aws-mcaf-account-baseline/compare/v7.0.1...v7.1.0
+
 ## v7.0.1 - 2025-10-31
 
 ### What's Changed
